@@ -48,6 +48,7 @@ module Elastictastic
         @_properties.merge!(field_properties)
         embeds.each_pair do |name, embed|
           @_properties[name] = { 'properties' => embed.clazz.properties }
+          @_properties[name]['type'] = embed.type unless embed.type.nil?
         end
         @_properties
       end
