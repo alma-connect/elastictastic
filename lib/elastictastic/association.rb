@@ -23,5 +23,10 @@ module Elastictastic
     def extract(instance)
       instance.__send__(name)
     end
+
+    ## used only for embedded/nested documents
+    def type
+      @options[:type]
+    end
   end
 end
