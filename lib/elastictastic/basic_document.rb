@@ -130,6 +130,19 @@ module Elastictastic
         { type => mapping_for_type }
       end
 
+      def destroy(id)
+        begin
+          response = Elastictastic.client.delete(
+              index_name,
+              type,
+              id
+          )
+        rescue => e
+          return "Unable to delete document. check if the document exists"
+        end
+        response['found']
+      end
+
       def type
         name.underscore
       end
