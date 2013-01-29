@@ -69,7 +69,7 @@ module Elastictastic
         url_from_env.class.build(
           :host => url_from_env.host,
           :port => url_from_env.port
-        )
+        ).to_s
       else
         'http://localhost:9200'
       end
